@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import {Navbar, NavbarBrand} from 'reactstrap';
 import MenuComponent from './components/MenuComponent';
-
-import './App.css';
 import { DISHES } from './shared/dishes';
-import DishDetail from './components/DishDetail';
 
 
 
@@ -28,7 +24,6 @@ class App extends Component {
           </div>
         </Navbar>
         <MenuComponent dishes={this.state.dishes} />
-        {/* <DishDetail></DishDetail> */}
       </div>
     );
   }
