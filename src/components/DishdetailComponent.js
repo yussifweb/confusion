@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+// import { DISHES } from '../shared/dishes';
 
 
 class Dishdetail extends Component {
 
-    constructor(props = {dish: null}) {
+    constructor(props) {
         super(props)
+        this.state = {
+           dish : null
+        }
     }
-
+    const dish = dish
     render() {
-        const dish = this.props.dish
+        
         return(
+            <div key={dish.id} className="container">
             <div className="row">
                 <div className="col-12 col-md-5 m-1">
                     <Card>
@@ -26,9 +31,11 @@ class Dishdetail extends Component {
                     <h4>Comments</h4>
                     {dish.comments.map(c => <ul key={c.id} className="list-unstyled">
                         <li>{c.comment}</li>
-                        <li>--{c.author }, <span>{c.date}</span></li>
+                        <li>--{c.author },
+                        <span>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(c.date)))}</span></li>
                     </ul>)}
                 </div>
+            </div>
             </div>
         )
     }
